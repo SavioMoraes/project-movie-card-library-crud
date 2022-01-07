@@ -36,16 +36,20 @@ class MovieList extends Component {
   render() {
     const { movies, loading } = this.state;
     return (
-      <div data-testid="movie-list" className="movie-list">
-        {
-          loading
-            ? <Loading />
-            : movies.map((movie, index) => <MovieCard key={ index } movie={ movie } />)
-        }
-        <button type="button">
-          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-        </button>
-      </div>
+      <>
+        <div data-testid="movie-list" className="movie-list">
+          {
+            loading
+              ? <Loading />
+              : movies.map((movie, index) => <MovieCard key={ index } movie={ movie } />)
+          }
+        </div>
+        <div className="container-add-card">
+          <button type="button" className="btn-add-card">
+            <Link to="/movies/new" className="add-card-link">ADICIONAR CARTÃO</Link>
+          </button>
+        </div>
+      </>
     );
   }
 }

@@ -22,7 +22,7 @@ class NewMovie extends Component {
   render() {
     const { status } = this.state;
     return (
-      <div data-testid="new-movie" className="new-movie">
+      <div data-testid="new-movie" className="form-container">
         { status && <Redirect to="/" /> }
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>

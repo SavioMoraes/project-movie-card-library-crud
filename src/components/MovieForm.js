@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -22,8 +25,8 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_title">
+      <div className="form-title">
+        <label htmlFor="movie_title" className="label-title">
           Título
           <input
             placeholder="Insira o título"
@@ -42,8 +45,8 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_subtitle">
+      <div className="form-subtitle">
+        <label htmlFor="movie_subtitle" className="label-subtitle">
           Subtítulo
           <input
             placeholder="Insira o subtítulo"
@@ -57,12 +60,12 @@ class MovieForm extends React.Component {
     );
   }
 
-  renderImagePathInput() { // para insrir uma imagem o caminho é: images/nome da imagem (funcionando")
+  renderImagePathInput() { // para inserir uma imagem o caminho é: images/nome da imagem (funcionando")
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
-        <label htmlFor="movie_image">
+      <div className="form-image">
+        <label htmlFor="movie_image" className="label-image">
           Imagem
           <input
             placeholder="Insira o caminho da imagem"
@@ -80,10 +83,11 @@ class MovieForm extends React.Component {
     const { storyline } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_storyline">
+      <div className="form-storyline">
+        <label htmlFor="movie_storyline" className="label-storyline">
           Sinopse
           <textarea
+            placeholder="Insira a sinopse do filme"
             id="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
@@ -96,8 +100,8 @@ class MovieForm extends React.Component {
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div>
-        <label htmlFor="movie_genre">
+      <div className="form-genre">
+        <label htmlFor="movie_genre" className="label-genre">
           Gênero
           <select
             id="movie_genre"
@@ -117,8 +121,8 @@ class MovieForm extends React.Component {
   renderRatingInput() {
     const { rating } = this.state;
     return (
-      <div>
-        <label htmlFor="movie_rating">
+      <div className="form-rating">
+        <label htmlFor="movie_rating" className="label-rating">
           Avaliação
           <input
             placeholder="Dê a avaliação do filme"
@@ -137,10 +141,16 @@ class MovieForm extends React.Component {
 
   renderSubmitButton() {
     return (
-      <div>
+      <div className="container-btn-form">
         <button type="button" onClick={ this.handleSubmit }>
           Submit
         </button>
+        <>
+          <Link to="/" className="link-undo">
+            <FontAwesomeIcon icon={faUndo} className="link-icon" /> 
+              VOLTAR
+          </Link>
+        </>
       </div>
     );
   }

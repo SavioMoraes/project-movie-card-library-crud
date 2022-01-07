@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 class MovieDetails extends Component {
   constructor() {
@@ -46,33 +48,38 @@ class MovieDetails extends Component {
           loading ? (
             <Loading />
           ) : (
-            <div data-testid="movie-details">
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <p>{`Title: ${title}`}</p>
-              <p>{`Subtitle: ${subtitle}`}</p>
-              <p>{`Storyline: ${storyline}`}</p>
-              <p>{`Genre: ${genre}`}</p>
-              <p>{`Rating: ${rating}`}</p>
-              <button type="button">
-                <Link
-                  to={ {
-                    pathname: `/movies/${id}/edit`,
-                    state: { params: { id } },
-                  } }
-                >
-                  EDITAR
+            <div data-testid="movie-details" className="movie-details">
+              <img alt="Movie Cover" src={ `../${imagePath}` } className="movie-details-image" />
+              <div className="container-movie-details">
+                <h4 className="movie-details-title">{`Title: ${title}`}</h4>
+                <h5 className="movie-details-subtitle">{`Subtitle: ${subtitle}`}</h5>
+                <p className="movie-details-storyline">{`Storyline: ${storyline}`}</p>
+                <p className="movie-details-genre">{`Genre: ${genre}`}</p>
+                <p className="movie-details-rating">{`${rating}`}</p>
+              </div>
+              <div className="buttons-details">
+                <button className="btn-edit-delete" type="button">
+                  <Link
+                    to={ {
+                      pathname: `/movies/${id}/edit`,
+                      state: { params: { id } },
+                    } }
+                    className="link-button"
+                  >
+                    EDITAR
+                  </Link>
+                </button>
+                <button className="btn-edit-delete" type="button">
+                  <Link to="/" onClick={ this.deleteCard }
+                  className="link-button" >
+                    DELETAR
+                  </Link>
+                </button>
+              </div>
+                <Link to="/" className="link-undo">
+                  <FontAwesomeIcon icon={faUndo} className="link-icon" /> 
+                    VOLTAR
                 </Link>
-              </button>
-              <button type="button">
-                <Link to="/" onClick={ this.deleteCard }>
-                  DELETAR
-                </Link>
-              </button>
-              <button type="button">
-                <Link to="/">
-                  VOLTAR
-                </Link>
-              </button>
             </div>)
         }
       </div>

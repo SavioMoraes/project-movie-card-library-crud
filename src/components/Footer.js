@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Header extends React.Component {
+class Footer extends React.Component {
   render() {
     return (
-      <header className="movie-card-footer">
+      <footer className="movie-card-footer">
         <h5 className="footer">Desenvolvido por @SavioMoraes 2021</h5>
-      </header>
+      </footer>
     );
   }
 }
 
-export default Header;
+export default Footer;
