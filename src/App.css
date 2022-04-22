@@ -292,7 +292,7 @@ body {
   text-align: center;
 }
 
-/* Page EditMovie e  Page NewMovie e Component MovieForm */
+/* Page EditMovie e Page NewMovie e Component MovieForm */
 .form-container {
   margin-top: 130px;
   margin-bottom: 130px;
@@ -451,6 +451,27 @@ option {
 }
 
 /* Tamanho de tela */
+@media only screen and (min-width: 1025px) {
+  .page-title {
+    font-size: 25px;
+  }
+
+  .movie-list {
+    margin-left: auto;
+    margin-right:  auto;
+    padding: 10px 30px;
+    margin-bottom: 30px;
+  }
+
+  .movie-card {
+    margin-bottom: 30px;
+  }
+
+  .movie-details {
+    width: 70%;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .page-title {
     font-size: 25px;
